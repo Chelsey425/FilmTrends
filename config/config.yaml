@@ -84,54 +84,54 @@ platforms:
 # 3. 数据源 - RSS 订阅
 #
 # 与热榜数据分开存储，按时间流展示
-# 每个源配置：id(唯一标识)、name(显示名称)、url(订阅地址)
+# 每个源配置：name(显示名称)、url(订阅地址)
 # enabled: 可选，默认 true
-# max_age_days: 可选，覆盖全局 freshness_filter.max_age_days
 # ===============================================================
 rss:
-  custom_rss_feeds:
-  # US Trade Sources
-  - name: "Variety - Main"
-    url: "https://variety.com/feed/"
-    needs_content_search: true
-  - name: "Variety - International"
-    url: "https://variety.com/feed/international/"
-    needs_content_search: true
-  - name: "Deadline"
-    url: "https://deadline.com/feed/"
-    needs_content_search: true
-  - name: "THR - Main"
-    url: "https://www.hollywoodreporter.com/feed/"
-    needs_content_search: true
-  - name: "THR - Film"
-    url: "https://www.hollywoodreporter.com/c/movies/feed/"
-    needs_content_search: true
-  - name: "Box Office Mojo - Stories"
-    url: "https://www.boxofficemojo.com/data/rss.php?file=topstories.xml"
-    needs_content_search: true
-  - name: "Box Office Mojo - Charts"
-    url: "https://www.boxofficemojo.com/data/rss.php?file=charts.xml"
-    needs_content_search: true
-  - name: "IMDb News"
-    url: "https://www.imdb.com/news/rss"
-    needs_content_search: true
-  
-  # International Sources
-  - name: "BBC Entertainment"
-    url: "http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"
-    needs_content_search: true
-  - name: "The Guardian Film"
-    url: "https://www.theguardian.com/film/rss"
-    needs_content_search: true
-  - name: "Bollywood Hungama"
-    url: "https://www.bollywoodhungama.com/feed/"
-    needs_content_search: true
-  - name: "Soompi (K-Entertainment)"
-    url: "https://www.soompi.com/feed"
-    needs_content_search: true
-  - name: "Anime News Network"
-    url: "https://www.animenewsnetwork.com/news/rss.xml"
-    needs_content_search: true
+  enabled: true
+  sources:
+    # US Trade Sources
+    - name: "Variety - Main"
+      url: "https://variety.com/feed/"
+      enabled: true
+    - name: "Variety - International"
+      url: "https://variety.com/feed/international/"
+      enabled: true
+    - name: "Deadline"
+      url: "https://deadline.com/feed/"
+      enabled: true
+    - name: "THR - Main"
+      url: "https://www.hollywoodreporter.com/feed/"
+      enabled: true
+    - name: "THR - Film"
+      url: "https://www.hollywoodreporter.com/c/movies/feed/"
+      enabled: true
+    - name: "Box Office Mojo - Stories"
+      url: "https://www.boxofficemojo.com/data/rss.php?file=topstories.xml"
+      enabled: true
+    - name: "Box Office Mojo - Charts"
+      url: "https://www.boxofficemojo.com/data/rss.php?file=charts.xml"
+      enabled: true
+    - name: "IMDb News"
+      url: "https://www.imdb.com/news/rss"
+      enabled: true
+    
+    # International Sources
+    - name: "BBC Entertainment"
+      url: "http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"
+      enabled: true
+    - name: "The Guardian Film"
+      url: "https://www.theguardian.com/film/rss"
+      enabled: true
+    - name: "Bollywood Hungama"
+      url: "https://www.bollywoodhungama.com/feed/"
+      enabled: true
+    - name: "Soompi (K-Entertainment)"
+      url: "https://www.soompi.com/feed"
+      enabled: true
+    - name: "Anime News Network"
+      url: "https://www.animenewsnetwork.com/news/rss.xml"
+      enabled: true
 
 
 # ===============================================================
