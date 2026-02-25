@@ -89,51 +89,49 @@ platforms:
 # max_age_days: 可选，覆盖全局 freshness_filter.max_age_days
 # ===============================================================
 rss:
-  enabled: true                       # 是否启用 RSS 抓取
-
-  # 文章新鲜度过滤配置（全局默认值）
-  # 过滤掉发布时间超过指定天数的旧文章，避免同一篇文章重复出现在推送中
-  #
-  # 过滤逻辑：
-  #   - 文章发布时间距当前时间（app.timezone 时区）超过 N 天则不推送
-  #   - 无发布时间的文章会被保留（不过滤）
-  #
-  # ⚠️ 过滤时机：在推送阶段过滤
-  #    - 所有文章都会存入数据库（MCP Server 的 AI 查询仍可访问）
-  #    - 只有新鲜的文章会被推送到通知渠道
-  freshness_filter:
-    enabled: true                     # 是否启用新鲜度过滤（默认启用）
-
-    max_age_days: 3                   # 最大文章年龄（天）
-                                      # - 正整数：只推送 N 天内的文章
-                                      # - 0：禁用过滤，推送所有文章
-
-  # 单个 feed 可配置 max_age_days 覆盖全局设置：
-  # - 不配置：使用全局 freshness_filter.max_age_days（默认 3 天）
-  # - 正整数：覆盖全局设置，只推送此天数内的文章
-  # - 0：禁用此频道的新鲜度过滤，推送所有文章
-  feeds:
-    - id: "hacker-news"
-      name: "Hacker News"
-      url: "https://hnrss.org/frontpage"
-      # max_age_days: 1               # 示例：只推送1天内的文章
-
-    - id: "ruanyifeng"
-      name: "阮一峰的网络日志"
-      url: "http://www.ruanyifeng.com/blog/atom.xml"
-      # max_age_days: 7               # 示例：推送7天内的文章（更新较慢的博客）
-    
-    - id: "yahoo-finance"
-      name: "雅虎财经"
-      url: "https://finance.yahoo.com/news/rssindex"
-      enabled: false                  # 禁用
-
-    # 自定义源示例
-    # - id: "custom-feed"
-    #   name: "自定义源"
-    #   url: "https://example.com/feed.xml"
-    #   enabled: false
-    #   max_age_days: 0               # 示例：禁用过滤，推送所有文章
+  custom_rss_feeds:
+  # US Trade Sources
+  - name: "Variety - Main"
+    url: "https://variety.com/feed/"
+    needs_content_search: true
+  - name: "Variety - International"
+    url: "https://variety.com/feed/international/"
+    needs_content_search: true
+  - name: "Deadline"
+    url: "https://deadline.com/feed/"
+    needs_content_search: true
+  - name: "THR - Main"
+    url: "https://www.hollywoodreporter.com/feed/"
+    needs_content_search: true
+  - name: "THR - Film"
+    url: "https://www.hollywoodreporter.com/c/movies/feed/"
+    needs_content_search: true
+  - name: "Box Office Mojo - Stories"
+    url: "https://www.boxofficemojo.com/data/rss.php?file=topstories.xml"
+    needs_content_search: true
+  - name: "Box Office Mojo - Charts"
+    url: "https://www.boxofficemojo.com/data/rss.php?file=charts.xml"
+    needs_content_search: true
+  - name: "IMDb News"
+    url: "https://www.imdb.com/news/rss"
+    needs_content_search: true
+  
+  # International Sources
+  - name: "BBC Entertainment"
+    url: "http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"
+    needs_content_search: true
+  - name: "The Guardian Film"
+    url: "https://www.theguardian.com/film/rss"
+    needs_content_search: true
+  - name: "Bollywood Hungama"
+    url: "https://www.bollywoodhungama.com/feed/"
+    needs_content_search: true
+  - name: "Soompi (K-Entertainment)"
+    url: "https://www.soompi.com/feed"
+    needs_content_search: true
+  - name: "Anime News Network"
+    url: "https://www.animenewsnetwork.com/news/rss.xml"
+    needs_content_search: true
 
 
 # ===============================================================
@@ -171,7 +169,17 @@ report:
   rank_threshold: 5                   # 排名高亮阈值
 
   max_news_per_keyword: 0             # 每个关键词最大显示数量（0=不限制）
+# Studios to track
+华纳|环球影业|迪士尼|索尼|派拉蒙|Netflix|华纳兄弟|环球|派拉蒙影业
 
+# Development terms
+立项|开发|筹备|改编|续集|重启|定档|开机|杀青|上映
+
+# Star tracking
+签约|加盟|出演|退出|片酬|合作|绯闻|恋情|分手|结婚
+
+# Performance metrics
+票房|收视率|播放量|评分|口碑|热度|上榜
 
 # ===============================================================
 # 5. 推送内容控制
