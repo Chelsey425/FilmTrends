@@ -1,0 +1,30 @@
+name: Get Hot News
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */2 * * *'  # Runs every 2 hours
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          pip install requests pyyaml pytz
+          
+      - name: Run news crawler
+        run: python main.py
+        
+      - name: Upload output
+        uses: actions/upload-artifact@v2
+        with:
+          name: news-output
+          path: output/
