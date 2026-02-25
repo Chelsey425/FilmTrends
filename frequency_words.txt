@@ -1,0 +1,19 @@
+# Hollywood Studios
+Warner Bros|Universal|Disney|Sony|Paramount|Netflix|Marvel|DC|Lucasfilm|Pixar
+
+# Production Terms
+in development|greenlit|acquired|in production|casting|director|sequel|reboot|announced|canceled|renewed
+
+# Star News
+cast in|signs on|joins cast|in talks|exits project|salary|attached to star
+
+# Box Office
+box office|opening weekend|worldwide gross|budget|ratings|viewership|streaming numbers
+
+# Awards
+Oscar|Academy Awards|Golden Globes|Emmy|nomination|nominated|shortlist|wins
+
+# Chinese Entertainment (optional)
+华纳|环球影业|迪士尼|索尼|派拉蒙|Netflix
+立项|开发|筹备|改编|续集|重启|定档|开机|杀青|上映
+明星|艺人|偶像|演员|歌手|票房|收视率
