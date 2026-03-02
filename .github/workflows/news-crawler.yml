@@ -1,9 +1,9 @@
 name: Get Hot News
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:      # Allows you to manually run it anytime
   schedule:
-    - cron: '0 */2 * * *'  # Runs every 2 hours
+    - cron: '0 8 * * *'   # Runs once daily at 8:00 AM UTC (adjust to your timezone)
 
 jobs:
   crawl:
@@ -18,14 +18,13 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install requests pyyaml pytz
+          pip install -r requirements.txt
           
       - name: Run news crawler
-        run: python main.py
+        run: python trendradar/main_.py
         
       - name: Upload output
         uses: actions/upload-artifact@v4
         with:
           name: news-output
           path: output/
-
